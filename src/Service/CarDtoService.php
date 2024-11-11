@@ -22,7 +22,7 @@ class CarDtoService
         );
     }
 
-    public function createCarDtoWithModel(Car $car): CarWithModelDto
+    public function createCarWithModelDto(Car $car): CarWithModelDto
     {
         return new CarWithModelDto(
             $car->getId(),

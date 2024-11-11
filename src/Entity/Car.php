@@ -25,7 +25,7 @@ class Car
     #[ORM\Column(length: 255)]
     private ?string $photo = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
+    #[ORM\Column(type: Types::INTEGER, options: ['unsigned' => true])]
     private ?string $price = null;
 
     public function getId(): ?int

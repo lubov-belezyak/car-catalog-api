@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Car;
 use App\Repository\CarRepository;
 use App\Service\CarDtoService;
 use App\Service\PaginationDtoService;
@@ -21,6 +22,9 @@ class CarController extends AbstractController
     {
     }
 
+    /**
+     * @TODO валидация номера страницы
+     */
     #[Route('/api/v1/cars', name: 'api.cars', methods: ['GET'])]
     public function getCars(Request $request): JsonResponse
     {
@@ -36,6 +40,15 @@ class CarController extends AbstractController
         return $this->json([
             'data' => $carsDTO,
             'pagination' => $paginationDTO,
+        ]);
+    }
+
+    #[Route('/api/v1/cars/{id}', name: 'api.car', methods: ['GET'])]
+    public function getCar(Car $car): JsonResponse
+    {
+        $carDto = $this->carDtoService->createCarWithModelDto($car);
+        return $this->json([
+            'data' => $carDto,
         ]);
     }
 }

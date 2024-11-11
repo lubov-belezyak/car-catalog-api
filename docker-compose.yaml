@@ -10,12 +10,12 @@ services:
     environment:
       - SYMFONY_ENV=dev
     depends_on:
-      - db
+      - database
     working_dir: /var/www/sites
     command: sh -c "composer install && php-fpm"
 
 
-  db:
+  database:
     image: mariadb:10.5
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}

@@ -31,7 +31,7 @@ final class Version20241111124723 extends AbstractMigration
                                 brand_id INT NOT NULL, 
                                 model_id INT NOT NULL, 
                                 photo VARCHAR(255) NOT NULL, 
-                                price NUMERIC(10, 2) NOT NULL, 
+                                price INT UNSIGNED NOT NULL, 
                                 INDEX IDX_CAR_BRAND_ID (brand_id), 
                                 INDEX IDX_MODEL_BRAND_ID (model_id), 
                                 PRIMARY KEY(id)

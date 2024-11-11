@@ -14,7 +14,7 @@ final class Version20241111141057 extends AbstractMigration
 {
     public function getDescription(): string
     {
-        return '';
+        return 'Уникальность для имен брендов и моделей';
     }
 
     public function up(Schema $schema): void

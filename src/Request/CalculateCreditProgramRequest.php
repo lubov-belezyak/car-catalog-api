@@ -11,6 +11,7 @@ class CalculateCreditProgramRequest
         #[Assert\NotBlank(message: 'Price is required')]
         #[Assert\Type(type: 'integer', message: 'Price must be an integer')]
         #[Assert\Positive(message: 'Price must be positive')]
+        #[Assert\GreaterThanOrEqual(1, message: 'Price must be more than 1')]
         public int   $price,
 
         #[Assert\NotBlank(message: 'Initial payment is required')]

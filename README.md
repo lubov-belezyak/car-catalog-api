@@ -1,6 +1,12 @@
 # API каталог машин
 
-- []()
+- [1. Развернуть проект](#1-развернуть-проект)
+- [2. Маршруты](#2-маршруты)
+  - [2.1. Cars](#21-cars)
+  - [2.2. Car](#22-car)
+  - [2.3. Credit Program](#23-credit-program)
+  - [2.4. Application](#24-application)
+- [3. Компоненты](#3-компоненты)
 
 ## 1. Развернуть проект
 
@@ -145,6 +151,7 @@ docker compose exec app symfony console doctrine:fixtures:load
     "detail": "Bad Request"
 }
 ```
+
 ### 2.2. Car
 - **URL**: GET /api/v1/car/{id}
 - **Parameters**: car.id
@@ -218,6 +225,7 @@ docker compose exec app symfony console doctrine:fixtures:load
   ]
 }
 ```
+
 ### 2.4. Application
 - **URL**: POST /api/v1/request
 - **Query Parameters**: price, initialPayment, oanTerm
@@ -245,6 +253,7 @@ docker compose exec app symfony console doctrine:fixtures:load
   ]
 }
 ```
+
 ## 3. Компоненты
 
 - Контроллеры

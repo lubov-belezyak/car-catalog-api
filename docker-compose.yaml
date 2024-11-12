@@ -12,7 +12,7 @@ services:
     depends_on:
       - database
     working_dir: /var/www/sites
-    command: sh -c "composer install && php-fpm"
+    command: sh -c "php-fpm && composer install"
 
 
   database:

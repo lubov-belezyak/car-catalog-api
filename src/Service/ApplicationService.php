@@ -11,16 +11,14 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class ApplicationService
 {
-    private ApplicationRepository $applicationRepository;
     private MonthlyPaymentCalculatorService $monthlyPaymentCalculatorService;
     private EntityManagerInterface $entityManager;
 
     public function __construct(
-        ApplicationRepository $applicationRepository,
         MonthlyPaymentCalculatorService $monthlyPaymentCalculatorService,
-        EntityManagerInterface $entityManager
-    ) {
-        $this->applicationRepository = $applicationRepository;
+        EntityManagerInterface          $entityManager
+    )
+    {
         $this->monthlyPaymentCalculatorService = $monthlyPaymentCalculatorService;
         $this->entityManager = $entityManager;
     }

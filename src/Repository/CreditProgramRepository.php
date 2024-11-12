@@ -26,7 +26,7 @@ class CreditProgramRepository extends ServiceEntityRepository
 
 
         // проходил ли % минимального платежа
-        if ($request->initialPayment){
+        if ($request->initialPayment) {
             $initialPaymentPercentage = ($request->initialPayment / $request->price) * 100;
             $qb->andWhere('cp.minInitialPaymentPercentage IS NULL OR cp.minInitialPaymentPercentage <= :initialPaymentPercentage')
                 ->setParameter('initialPaymentPercentage', $initialPaymentPercentage);

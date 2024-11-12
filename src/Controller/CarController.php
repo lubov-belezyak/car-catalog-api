@@ -6,7 +6,6 @@ use App\Entity\Car;
 use App\Repository\CarRepository;
 use App\Service\CarDtoService;
 use App\Service\PaginationDtoService;
-use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,38 +21,6 @@ class CarController extends AbstractController
     {
     }
 
-    /**
-     * @OA\Get(
-     *     path="/api/v1/cars",
-     *     summary="Get a list of cars",
-     *     tags={"Cars"},
-     *     @OA\Parameter(
-     *         name="page",
-     *         in="query",
-     *         description="Page number for pagination",
-     *         required=false,
-     *         @OA\Schema(type="integer", default=1)
-     *     ),
-     *     @OA\Response(
-     *         response=200,
-     *         description="List of cars",
-     *         @OA\JsonContent(
-     *             type="object",
-     *             @OA\Property(
-     *                 property="data",
-     *                 type="array",
-     *                 @OA\Items(ref="#/components/schemas/CarDTO")
-     *             ),
-     *             @OA\Property(
-     *                 property="pagination",
-     *                 ref="#/components/schemas/PaginationDTO"
-     *             )
-     *         )
-     *     ),
-     *     @OA\Response(response=400, description="Bad Request"),
-     *     @OA\Response(response=404, description="Not Found")
-     * )
-     */
     #[Route('/api/v1/cars', name: 'api.cars', methods: ['GET'])]
     public function getCars(Request $request): JsonResponse
     {
@@ -72,32 +39,6 @@ class CarController extends AbstractController
         ]);
     }
 
-    /**
-     * @OA\Get(
-     *     path="/api/v1/cars/{id}",
-     *     summary="Get a car by ID",
-     *     tags={"Cars"},
-     *     @OA\Parameter(
-     *         name="id",
-     *         in="path",
-     *         description="ID of the car",
-     *         required=true,
-     *         @OA\Schema(type="integer")
-     *     ),
-     *     @OA\Response(
-     *         response=200,
-     *         description="Car details",
-     *         @OA\JsonContent(
-     *             type="object",
-     *             @OA\Property(
-     *                 property="data",
-     *                 ref="#/components/schemas/CarDTO"
-     *             )
-     *         )
-     *     ),
-     *     @OA\Response(response=404, description="Car not found")
-     * )
-     */
     #[Route('/api/v1/cars/{id}', name: 'api.car', methods: ['GET'])]
     public function getCar(Car $car): JsonResponse
     {

@@ -23,7 +23,7 @@ class CalculateCreditProgramRequest
         #[Assert\Type(type: 'integer', message: 'Loan term must be an integer')]
         #[Assert\Positive(message: 'Loan term must be positive')]
         #[Assert\LessThanOrEqual(120, message: 'Loan term must be less than or equal to 120')]
-        public int $loanTerm
+        public int   $loanTerm
     )
     {
     }

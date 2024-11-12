@@ -7,7 +7,8 @@ use Knp\Component\Pager\Pagination\PaginationInterface;
 
 class PaginationDtoService
 {
-    public function createPaginationDto(PaginationInterface $pagination): PaginationDto {
+    public function createPaginationDto(PaginationInterface $pagination): PaginationDto
+    {
 
         return new PaginationDto(
             $pagination->getCurrentPageNumber(),

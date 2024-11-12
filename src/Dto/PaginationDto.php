@@ -1,17 +1,6 @@
 <?php
 
 namespace App\Dto;
-
-/**
- * @OA\Schema(
- *     schema="PaginationDTO",
- *     type="object",
- *     @OA\Property(property="totalItems", type="integer"),
- *     @OA\Property(property="totalPages", type="integer"),
- *     @OA\Property(property="currentPage", type="integer"),
- *     @OA\Property(property="itemsPerPage", type="integer")
- * )
- */
 class PaginationDto
 {
     private int $currentPage;
@@ -19,7 +8,8 @@ class PaginationDto
     private int $perPage;
     private int $total;
 
-    public function __construct(int $currentPage, int $totalPages, int $perPage, int $total){
+    public function __construct(int $currentPage, int $totalPages, int $perPage, int $total)
+    {
         $this->currentPage = $currentPage;
         $this->totalPages = $totalPages;
         $this->perPage = $perPage;

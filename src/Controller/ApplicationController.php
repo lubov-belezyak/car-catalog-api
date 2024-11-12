@@ -15,15 +15,17 @@ use Symfony\Component\Routing\Attribute\Route;
 class ApplicationController extends AbstractController
 {
     public function __construct(
-        private ApplicationService $applicationService,
-        private CarRepository $carRepository,
+        private ApplicationService      $applicationService,
+        private CarRepository           $carRepository,
         private CreditProgramRepository $creditProgramRepository
-    ) {
+    )
+    {
     }
+
     #[Route('/api/v1/request', name: 'app_application', methods: ['POST'])]
     public function create(#[MapRequestPayload(
         validationFailedStatusCode: Response::HTTP_BAD_REQUEST,
-    )]ApplicationRequest $request): JsonResponse
+    )] ApplicationRequest $request): JsonResponse
     {
         $car = $this->carRepository->find($request->carId);
         $creditProgram = $this->creditProgramRepository->find($request->creditProgramId);

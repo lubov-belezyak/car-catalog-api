@@ -12,7 +12,7 @@ class CreditCalculatorService
     private CreditProgramRepository $creditProgramRepository;
     private MonthlyPaymentCalculatorService $monthlyPaymentCalculatorService;
 
-    public function __construct(CreditProgramRepository $creditProgramRepository,
+    public function __construct(CreditProgramRepository         $creditProgramRepository,
                                 MonthlyPaymentCalculatorService $paymentCalculatorService)
     {
         $this->creditProgramRepository = $creditProgramRepository;

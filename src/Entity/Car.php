@@ -87,11 +87,9 @@ class Car
         return $this->price;
     }
 
-    public function setPrice(string $price): static
+    public function setPrice(?string $price): void
     {
         $this->price = $price;
-
-        return $this;
     }
 
     /**

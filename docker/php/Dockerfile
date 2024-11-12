@@ -30,6 +30,7 @@ COPY . /var/www/sites
 
 # Устанавливаем права для пользователя Apache
 RUN chown -R www-data:www-data /var/www/sites
+RUN chmod -R 777 /var/www/sites/var/cache /var/www/sites/var/log
 
 # Рабочая директория для PHP
 WORKDIR /var/www/sites

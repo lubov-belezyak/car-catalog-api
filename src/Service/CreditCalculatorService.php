@@ -10,10 +10,13 @@ use App\Repository\CreditProgramRepository;
 class CreditCalculatorService
 {
     private CreditProgramRepository $creditProgramRepository;
+    private MonthlyPaymentCalculatorService $monthlyPaymentCalculatorService;
 
-    public function __construct(CreditProgramRepository $creditProgramRepository)
+    public function __construct(CreditProgramRepository $creditProgramRepository,
+                                MonthlyPaymentCalculatorService $paymentCalculatorService)
     {
         $this->creditProgramRepository = $creditProgramRepository;
+        $this->monthlyPaymentCalculatorService = $paymentCalculatorService;
     }
 
     public function calculateMonthlyPayment(CalculateCreditProgramRequest $request): CreditProgramDto
@@ -24,8 +27,7 @@ class CreditCalculatorService
         $interestRate = $program->getInterestRate() / 100 / 12;
         $loanTermMonths = $request->loanTerm;
 
-        $monthlyPayment = $loanAmount * $interestRate / (1 - pow(1 + $interestRate, -$loanTermMonths));
-        $monthlyPayment = round($monthlyPayment, 2);
+        $monthlyPayment = $this->monthlyPaymentCalculatorService->calculateMonthlyPayment($loanAmount, $interestRate, $loanTermMonths);
 
         return new CreditProgramDto($program->getId(), $program->getInterestRate(), (int)$monthlyPayment, $program->getTitle());
     }

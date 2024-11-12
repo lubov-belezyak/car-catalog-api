@@ -2,6 +2,15 @@
 
 namespace App\Dto;
 
+/**
+ * @OA\Schema(
+ *     schema="CarDTO",
+ *     type="object",
+ *     @OA\Property(property="id", type="integer"),
+ *     @OA\Property(property="model", type="string"),
+ *     @OA\Property(property="price", type="integer")
+ * )
+ */
 class CarDto
 {
     private int $id;

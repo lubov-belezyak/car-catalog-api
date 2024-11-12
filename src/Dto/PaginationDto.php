@@ -2,6 +2,16 @@
 
 namespace App\Dto;
 
+/**
+ * @OA\Schema(
+ *     schema="PaginationDTO",
+ *     type="object",
+ *     @OA\Property(property="totalItems", type="integer"),
+ *     @OA\Property(property="totalPages", type="integer"),
+ *     @OA\Property(property="currentPage", type="integer"),
+ *     @OA\Property(property="itemsPerPage", type="integer")
+ * )
+ */
 class PaginationDto
 {
     private int $currentPage;

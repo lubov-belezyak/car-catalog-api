@@ -19,7 +19,7 @@ class CreditCalculatorService
         $this->monthlyPaymentCalculatorService = $paymentCalculatorService;
     }
 
-    public function calculateMonthlyPayment(CalculateCreditProgramRequest $request): CreditProgramDto
+    public function getCreditProductDto(CalculateCreditProgramRequest $request): CreditProgramDto
     {
         $program = $this->selectCreditProgram($request);
 

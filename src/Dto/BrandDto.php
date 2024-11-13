@@ -2,6 +2,15 @@
 
 namespace App\Dto;
 
+use OpenApi\Attributes as OA;
+#[OA\Schema(
+    schema: "BrandDto",
+    type: "object",
+    properties: [
+        new OA\Property(property: "id", type: "integer", example: 4),
+        new OA\Property(property: "name", type: "string", example: "Mercedes-Benz")
+    ]
+)]
 class BrandDto
 {
     private int $id;

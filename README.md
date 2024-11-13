@@ -34,6 +34,9 @@ docker compose exec app symfony console doctrine:fixtures:load
 ## 2. Маршруты
 Обязательный заголовок: `Accept: application/json`
 
+> Документация, веб-интерфейс: `/api/doc`  
+> Документация в формате .json: `/api/doc.json`
+
 ### 2.1. Cars
 - **URL**: GET /api/v1/cars
 - **Query Parameters**: 

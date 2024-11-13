@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Dto;
+
+use OpenApi\Attributes as OA;
 class CarDto
 {
+
     private int $id;
     private float $price;
     private string $photo;
